@@ -22,12 +22,6 @@ jobs:
         with:
           python-version: ${{ matrix.python-version }}
 
-      - name: Install dependencies
-        run: |
-          python -m pip install --upgrade pip
-          pip install -r fair_sharer/requirements.txt
-          pip install ruff  # Ruff installieren
-
       - name: Lint with Ruff
         run: |
           ruff check .  # Linting-Befehl
