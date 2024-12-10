@@ -12,7 +12,7 @@ jobs:
     strategy:
       matrix:
         os: [ubuntu-latest, windows-latest, macos-latest]
-        python-version: ["3.9", "3.10"]
+        python-version: [3.9, 3.10]
 
     steps:
       - uses: actions/checkout@v3
@@ -25,11 +25,12 @@ jobs:
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install -r fair_sharer/requirements.txt
+          pip install -r requirements.txt
+          pip install ruff  # Ruff installieren
 
       - name: Lint with Ruff
         run: |
-          ruff check .
+          ruff check .  # Linting-Befehl
 
       - name: Test with pytest
         run: |
